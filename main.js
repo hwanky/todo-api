@@ -1,6 +1,8 @@
-import { getTodos } from "./components/getTodos.js";
-import { createTodo } from "./components/createTodo.js";
+import { addTodo } from "./components/addTodo.js";
 import { renderTodos } from "./components/renderTodos.js";
+import { getTodos } from "./fetch.js";
+
+const addBtnEl = document.querySelector(".add-btn");
 
 async function test() {
   let todos = await getTodos();
@@ -8,3 +10,8 @@ async function test() {
 }
 
 test();
+
+addBtnEl.addEventListener("click", async (event) => {
+  event.preventDefault();
+  await addTodo();
+});
