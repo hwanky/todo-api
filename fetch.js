@@ -35,3 +35,14 @@ export async function deleteTodo(id) {
 
   return json;
 }
+
+export async function editTodo(id, { title, done, order }) {
+  const res = await fetch(API_URL + `/${id}`, {
+    method: "PUT",
+    headers: HEADER,
+    body: JSON.stringify({ title, done, order }),
+  });
+  const json = await res.json();
+
+  return json;
+}
