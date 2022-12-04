@@ -3,3 +3,7 @@
   gap: 5px;
   margin-top: 10px;
 }
+
+.todo-item .todo-text-checked {
+  text-decoration: line-through;
+}

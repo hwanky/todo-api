@@ -41,11 +41,20 @@ export async function renderTodos(todos) {
       event.preventDefault();
       let title = todos[idx].title;
       let done = checkBtn.checked;
-      editTodo(todos[idx].id, { title, done });
+      await editTodo(todos[idx].id, { title, done });
+      todosEl.innerHTML = "";
+      let newTodos = await getTodos();
+      await renderTodos(newTodos);
     });
 
     if (todos[idx].done) {
       checkBtn.checked = true;
+      todoTextEl[idx + 1].classList.remove("todo-text");
+      todoTextEl[idx + 1].classList.add("todo-text-checked");
+      editBtnEl[idx].style.display = "none";
+    } else {
+      todoTextEl[idx + 1].classList.remove("todo-text-checked");
+      todoTextEl[idx + 1].classList.add("todo-text");
     }
   });
 
