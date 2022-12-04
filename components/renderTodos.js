@@ -31,7 +31,7 @@ export async function renderTodos(todos) {
       await deleteTodo(todos[idx].id);
       todosEl.innerHTML = "";
       let newTodos = await getTodos();
-      await renderTodos(newTodos);
+      renderTodos(newTodos);
     });
   });
 
@@ -44,17 +44,15 @@ export async function renderTodos(todos) {
       await editTodo(todos[idx].id, { title, done });
       todosEl.innerHTML = "";
       let newTodos = await getTodos();
-      await renderTodos(newTodos);
+      renderTodos(newTodos);
     });
 
     if (todos[idx].done) {
       checkBtn.checked = true;
-      todoTextEl[idx + 1].classList.remove("todo-text");
-      todoTextEl[idx + 1].classList.add("todo-text-checked");
+      todoTextEl[idx].style.textDecoration = "line-through";
       editBtnEl[idx].style.display = "none";
     } else {
-      todoTextEl[idx + 1].classList.remove("todo-text-checked");
-      todoTextEl[idx + 1].classList.add("todo-text");
+      todoTextEl[idx].style.textDecoration = "none";
     }
   });
 
@@ -64,7 +62,7 @@ export async function renderTodos(todos) {
       event.preventDefault();
       editBtn.style.display = "none";
 
-      todoTextEl[idx + 1].innerHTML = /* HTML */ `
+      todoTextEl[idx].innerHTML = /* HTML */ `
         <form>
           <input type="text" class="edit-text" value=${todos[idx].title} />
           <button class="edit-complete-btn">Complete</button>
@@ -72,8 +70,8 @@ export async function renderTodos(todos) {
       `;
 
       const editCompleteBtnEl =
-        todoTextEl[idx + 1].querySelector(".edit-complete-btn");
-      const editTextEl = todoTextEl[idx + 1].querySelector(".edit-text");
+        todoTextEl[idx].querySelector(".edit-complete-btn");
+      const editTextEl = todoTextEl[idx].querySelector(".edit-text");
 
       editTextEl.focus();
       editTextEl.setSelectionRange(
@@ -90,7 +88,7 @@ export async function renderTodos(todos) {
         });
         todosEl.innerHTML = "";
         let newTodos = await getTodos();
-        await renderTodos(newTodos);
+        renderTodos(newTodos);
       });
     });
   });
