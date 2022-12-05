@@ -41,7 +41,6 @@ viewOptionEl.addEventListener("change", async (event) => {
   const todoTextEl = document.querySelectorAll(".todo-text");
 
   if (viewOptionEl.value === "true") {
-    console.log("true");
     todos.forEach((todo, idx) => {
       if (!todo.done) {
         todoTextEl[idx].parentElement.style.display = "none";
@@ -50,7 +49,6 @@ viewOptionEl.addEventListener("change", async (event) => {
       }
     });
   } else if (viewOptionEl.value === "false") {
-    console.log("false");
     todos.forEach((todo, idx) => {
       if (todo.done) {
         todoTextEl[idx].parentElement.style.display = "none";
@@ -59,7 +57,6 @@ viewOptionEl.addEventListener("change", async (event) => {
       }
     });
   } else if (viewOptionEl.value === "all") {
-    console.log("all");
     todos.forEach((todo, idx) => {
       todoTextEl[idx].parentElement.style.display = "flex";
     });

@@ -5,17 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo App</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
     <script type="module" defer src="./main.js"></script>
   </head>
   <body>
     <h1>To do List</h1>
-    <form id="todo-creator">
-      <input type="text" class="input-text" placeholder="할 일을 입력하세요." />
-      <button class="add-btn">추가</button>
-    </form>
-    <div>
-      표시:
+    <div id="todo-creater">
+      <form>
+        <input
+          type="text"
+          class="input-text"
+          placeholder="할 일을 입력하세요."
+        />
+        <button class="add-btn">Add</button>
+      </form>
+    </div>
+    <div id="filters">
+      View:
       <select class="view-option">
         <option value="all">모두</option>
         <option value="true">완료</option>

@@ -1,0 +1,88 @@
+@import "./reset.css";
+
+* {
+  font-family: "Fredoka One", "Jua", sans-serif;
+}
+
+body {
+  font-family: "Fredoka One", "Jua", sans-serif;
+}
+
+h1 {
+  font-size: 40px;
+  margin: 10px;
+  text-align: center;
+}
+
+#todo-creater,
+#filters {
+  display: block;
+  text-align: center;
+  margin: 20px;
+  font-size: 20px;
+}
+
+.input-text {
+  width: 30%;
+  font-size: 20px;
+}
+
+.add-btn {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.view-option {
+  font-size: 20px;
+}
+
+.deleteAll-btn {
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.todos {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.todo-text {
+  font-size: 20px;
+  margin-left: 20px;
+}
+.edit-btn {
+  font-size: 20px;
+  position: absolute;
+  right: 50px;
+  bottom: 10px;
+}
+
+.delete-btn {
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.edit-text {
+  font-size: 20px;
+  width: 50%;
+}
+
+.edit-complete-btn {
+  position: absolute;
+  font-size: 20px;
+  right: 50px;
+  bottom: 10px;
+}
+
+.todo-item {
+  position: relative;
+  padding: 15px;
+  border: 1px solid #c8c8c8;
+  width: 50%;
+  margin: 0 auto 5px;
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
