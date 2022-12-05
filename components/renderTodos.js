@@ -23,6 +23,7 @@ export async function renderTodos(todos) {
   const checkBtnEl = document.querySelectorAll(".checkbox-btn");
   const editBtnEl = document.querySelectorAll(".edit-btn");
   const todoTextEl = document.querySelectorAll(".todo-text");
+  const viewOptionEl = document.querySelector(".view-option");
 
   // 삭제
   deleteBtnEl.forEach((deleteBtn, idx) => {
@@ -32,6 +33,7 @@ export async function renderTodos(todos) {
       todosEl.innerHTML = "";
       let newTodos = await getTodos();
       renderTodos(newTodos);
+      viewOptionEl.value = "all";
     });
   });
 
@@ -45,6 +47,7 @@ export async function renderTodos(todos) {
       todosEl.innerHTML = "";
       let newTodos = await getTodos();
       renderTodos(newTodos);
+      viewOptionEl.value = "all";
     });
 
     if (todos[idx].done) {
@@ -89,6 +92,7 @@ export async function renderTodos(todos) {
         todosEl.innerHTML = "";
         let newTodos = await getTodos();
         renderTodos(newTodos);
+        viewOptionEl.value = "all";
       });
     });
   });

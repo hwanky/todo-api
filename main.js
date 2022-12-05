@@ -5,6 +5,7 @@ import { deleteTodo, getTodos } from "./fetch.js";
 const addBtnEl = document.querySelector(".add-btn");
 const deleteAllBtnEl = document.querySelector(".deleteAll-btn");
 const todosEl = document.querySelector(".todos");
+const viewOptionEl = document.querySelector(".view-option");
 
 document.querySelector(".input-text").focus();
 
@@ -31,4 +32,36 @@ deleteAllBtnEl.addEventListener("click", async (event) => {
   todosEl.innerHTML = "";
   let newTodos = await getTodos();
   renderTodos(newTodos);
+  viewOptionEl.value = "all";
+});
+
+viewOptionEl.addEventListener("change", async (event) => {
+  event.preventDefault();
+  let todos = await getTodos();
+  const todoTextEl = document.querySelectorAll(".todo-text");
+
+  if (viewOptionEl.value === "true") {
+    console.log("true");
+    todos.forEach((todo, idx) => {
+      if (!todo.done) {
+        todoTextEl[idx].parentElement.style.display = "none";
+      } else {
+        todoTextEl[idx].parentElement.style.display = "flex";
+      }
+    });
+  } else if (viewOptionEl.value === "false") {
+    console.log("false");
+    todos.forEach((todo, idx) => {
+      if (todo.done) {
+        todoTextEl[idx].parentElement.style.display = "none";
+      } else {
+        todoTextEl[idx].parentElement.style.display = "flex";
+      }
+    });
+  } else if (viewOptionEl.value === "all") {
+    console.log("all");
+    todos.forEach((todo, idx) => {
+      todoTextEl[idx].parentElement.style.display = "flex";
+    });
+  }
 });

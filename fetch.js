@@ -32,6 +32,7 @@ export async function deleteTodo(id) {
     headers: HEADER,
   });
   const json = await res.json();
+
   return json;
 }
 
